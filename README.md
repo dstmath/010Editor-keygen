@@ -37,9 +37,9 @@ A keygen for 010Editor
 
   * __EncodedLicenseCount__: This is a 2-bytes-long data. The function `_010Editor::Keygen<_010Editor::KeyType::Base>::EncodeLicenseCount` in `_010EditorKeygen.hpp` can calulate it. This function receives only 1 parameter.
 
-    |Parameter         |Description                                          |
-    |------------------|-----------------------------------------------------|
-    |DesireLicenseCount|The license count your want. Must be Must be 1~1000. |
+    |Parameter          |Description                                          |
+    |-------------------|-----------------------------------------------------|
+    |DesiredLicenseCount|The license count your want. Must be Must be 1~1000. |
 
 ### 1.1 Evaluation Key
 

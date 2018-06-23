@@ -88,11 +88,11 @@ namespace _010Editor {
             return true;
         }
 
-        static bool EncodeLicenseCount(uint16_t DesireLicenseCount, uint16_t& out) {
-            if (DesireLicenseCount > 1000 || DesireLicenseCount == 0)
+        static bool EncodeLicenseCount(uint16_t DesiredLicenseCount, uint16_t& out) {
+            if (DesiredLicenseCount > 1000 || DesiredLicenseCount == 0)
                 return false;
 
-            uint16_t ret = static_cast<uint16_t>(DesireLicenseCount * 11);
+            uint16_t ret = static_cast<uint16_t>(DesiredLicenseCount * 11);
             ret ^= 0x3421;
             ret -= 0x4d30;
             ret ^= 0x7892;
