@@ -17,6 +17,6 @@ int main() {
 
     std::vector<byte> name_bytes(name.begin(), name.end());
     _010Editor::Keygen<_010Editor::KeyType::TimeLicense> keygen;
-    std::cout << keygen.GetKey(name_bytes, ExpireDaystamp, 1);
+    std::cout << keygen.GetKey(name_bytes, ExpireDaystamp, 1) << std::endl;
     return 0;
 }

@@ -202,11 +202,11 @@ namespace _010Editor {
             union {
                 byte bytes[2];
                 uint16_t word;
-            } temp;
-            if(!EncodeLicenseCount(LicenseCount, temp.word))
+            } EncodedLicenseCount;
+            if(!EncodeLicenseCount(LicenseCount, EncodedLicenseCount.word))
                 return ret.str();
-            Password.data[1] = temp.bytes[1] ^ Password.data[7];
-            Password.data[2] = temp.bytes[0] ^ Password.data[5];
+            Password.data[1] = EncodedLicenseCount.bytes[1] ^ Password.data[7];
+            Password.data[2] = EncodedLicenseCount.bytes[0] ^ Password.data[5];
 
 
             Password.data[0] = MajorVersion;
@@ -258,23 +258,23 @@ namespace _010Editor {
             union {
                 byte bytes[4];
                 uint32_t dword;
-            } temp;
-            if (!EncodeExpireDate(DaystampOfExpiration, 0x5B8C27, temp.dword))
+            } EncodedExpireDaystamp;
+            if (!EncodeExpireDate(DaystampOfExpiration, 0x5B8C27, EncodedExpireDaystamp.dword))
                 return ret.str();
             CalulateChecksum(utf8_UserName, true, DaystampOfExpiration, LicenseCount, Password.Checksum);
-            Password.data[0] = temp.bytes[0] ^ Password.data[6];
-            Password.data[8] = temp.bytes[1] ^ Password.data[4];
-            Password.data[9] = temp.bytes[2] ^ Password.data[5];
+            Password.data[0] = EncodedExpireDaystamp.bytes[0] ^ Password.data[6];
+            Password.data[8] = EncodedExpireDaystamp.bytes[1] ^ Password.data[4];
+            Password.data[9] = EncodedExpireDaystamp.bytes[2] ^ Password.data[5];
 
 
             union {
                 byte bytes[2];
                 uint16_t word;
-            } temp2;
-            if(!EncodeLicenseCount(LicenseCount, temp2.word))
+            } EncodedLicenseCount;
+            if(!EncodeLicenseCount(LicenseCount, EncodedLicenseCount.word))
                 return ret.str();
-            Password.data[1] = temp2.bytes[1] ^ Password.data[7];
-            Password.data[2] = temp2.bytes[0] ^ Password.data[5];
+            Password.data[1] = EncodedLicenseCount.bytes[1] ^ Password.data[7];
+            Password.data[2] = EncodedLicenseCount.bytes[0] ^ Password.data[5];
 
 
             Password.Type = 0xAC;
